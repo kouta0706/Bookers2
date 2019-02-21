@@ -1,0 +1,20 @@
+<h1>User info</h1>
+<%= attachment_image_tag @user, :image, fallback: "no_man.png", size:'100x100' %>
+<h2>name</h2>
+<%= @user.name %>
+<h2>introduction</h2>
+<%= @user.introduction %>
+<%= link_to "",edit_user_path(@user),class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench" %>
+<h1>New book</h1>
+<%= form_for(@book) do |f| %>
+
+    <h4>Title</h4>
+    <%= f.text_field :title,class: "book_title"%>
+
+    <h4>Opinion</h4>
+    <%= f.text_area :opinion,class: "book_body" %>
+    <%= f.submit "Create Book",class: "btn btn-primary" %>
+<% end %>
+
+
+

@@ -1,0 +1,28 @@
+<h1>Userinfo</h1>
+<% if @user.errors.any? %>
+        <%= @user.errors.count %>error
+        <% @user.errors.full_messages.each do |message| %>
+            <%= message %>
+        <% end %>
+        <% end %>
+<%= form_for(@user) do |f| %>
+	
+     <div class="form-group has-icon">
+
+        <%= f.label :Name %>
+        <%= f.text_field :name, autofocus: true, class:"form-control", id:"inputEmail", placeholder:"名前"%>
+        
+    </div>
+    <h4>Image</h4>
+    <div class="form-group has-icon">
+    <div class="user-edit-image">
+        <%= attachment_image_tag @user, :image, :fill, 60, 60, class: "img-circle pull-left profile-thumb"%>
+    </div>
+    <label class="control-label sr-only" for="inputEmail">ProfileImage</label>
+    <%= f.attachment_field :image, placeholder: "プロフィール画像", class: "user-edit-form",class: "user_image"
+ %>
+    </div>
+    <%= f.label :Introduction %>
+    <%= f.text_area :introduction,class: "introduction" %>
+    <%= f.submit "Update User", class:"btn btn-lg btn-block btn-base-1 mt-20" %>
+<% end %>
