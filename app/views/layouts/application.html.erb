@@ -27,8 +27,10 @@
     <div class="collapse navbar-collapse" id="navbarEexample7">
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
-              <li class="item">
-                <%= link_to 'Home', user_path(current_user),class: "glyphicon glyphicon-home home" %>
+              <li>
+                <%= link_to user_path(current_user.id), class: "home" do %>
+                <span class="glyphicon glyphicon-home">Home</span>
+                <% end %>
               </li>
               <li class="item">
                 <!-- ↓以下のコードは、5章で正しいroutingに書き直します。 -->
@@ -42,17 +44,24 @@
                 <%= link_to "logout", destroy_user_session_path,method: :delete, class: "glyphicon glyphicon-log-out logout" %>
               </li>
             <% else %>
-              <li class="item">
-                <%= link_to 'Home', books_top_path,class: "glyphicon glyphicon-home home" %>
+              <li>
+                <%= link_to books_top_path, class: "home" do%>
+                <span class="glyphicon glyphicon-home">Home</span>
+                <% end %>
+            
               </li>
-              <li class="item">
-                <%= link_to "About", books_about_path, class: "glyphicon glyphicon-link about" %>
+              <li>
+                <%= link_to  books_about_path, class: "about" do %>
+                <span class="glyphicon glyphicon-link">About</span>
+                <% end %>
               </li>
               <li class="item">
                 <%= link_to "sign up", new_user_registration_path, class: "glyphicon glyphicon-edit sign_up" %>
               </li>
-              <li class="item">
-                <%= link_to " login", new_user_session_path, class: "glyphicon glyphicon-log-in sign_in" %>
+              <li>
+                <%= link_to new_user_session_path, class: "sign_in" do %>
+                <span class="glyphicon glyphicon-log-in"> login</span>
+                <% end %>
               </li>
              <% end %>
             </ul>
