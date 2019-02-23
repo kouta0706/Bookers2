@@ -7,7 +7,8 @@ class ApplicationController < ActionController::Base
 	end
 
 	def after_sign_out_path_for(resource)
-        books_top_path # ログアウト後に遷移するpathを設定
+		root_path
+        # books_top_path # ログアウト後に遷移するpathを設定
     end
 
 	protected
